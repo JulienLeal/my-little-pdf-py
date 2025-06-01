@@ -1,0 +1,15 @@
+tests/__pycache__
+.pytest_cache/
+.venv/
+.mypy_cache/
+.ruff_cache/
+.pylint.d/
+__pycache__
+
+# Temporary outputs and generated files
+*.html
+test_*.html
+example_output.*
+test_output.*
+demo_output.*
+*.tmp

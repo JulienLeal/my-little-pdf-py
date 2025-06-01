@@ -1,0 +1,10 @@
+<div class="{{ css_classes }}"{{ data_attributes | attr_string }}>
+    {% if title %}
+    <div class="tip-box-header">
+        <strong>{{ title }}</strong>
+    </div>
+    {% endif %}
+    <div class="tip-box-content">
+        {{ content | safe }}
+    </div>
+</div> 

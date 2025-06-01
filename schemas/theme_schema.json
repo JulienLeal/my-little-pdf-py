@@ -1,0 +1,408 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/your-repo/theme-schema",
+  "title": "Markdown-to-PDF Theme Configuration",
+  "description": "Configuration schema for theme.yaml files used by the Markdown-to-PDF engine",
+  "type": "object",
+  "properties": {
+    "page_setup": {
+      "type": "object",
+      "description": "Page layout and default font settings",
+      "properties": {
+        "size": {
+          "type": "string",
+          "enum": ["A4", "A3", "A5", "Letter", "Legal", "Tabloid"],
+          "default": "A4",
+          "description": "Standard page size"
+        },
+        "orientation": {
+          "type": "string",
+          "enum": ["portrait", "landscape"],
+          "default": "portrait",
+          "description": "Page orientation"
+        },
+        "margin": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^\\d+(\\.\\d+)?(cm|mm|in|pt|px)$",
+              "description": "Uniform margin for all sides"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "top": {
+                  "type": "string",
+                  "pattern": "^\\d+(\\.\\d+)?(cm|mm|in|pt|px)$"
+                },
+                "bottom": {
+                  "type": "string",
+                  "pattern": "^\\d+(\\.\\d+)?(cm|mm|in|pt|px)$"
+                },
+                "left": {
+                  "type": "string",
+                  "pattern": "^\\d+(\\.\\d+)?(cm|mm|in|pt|px)$"
+                },
+                "right": {
+                  "type": "string",
+                  "pattern": "^\\d+(\\.\\d+)?(cm|mm|in|pt|px)$"
+                }
+              },
+              "additionalProperties": false,
+              "description": "Individual margins for each side"
+            }
+          ],
+          "default": "2cm"
+        },
+        "default_font": {
+          "type": "object",
+          "properties": {
+            "family": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1,
+              "default": ["Open Sans", "Arial", "sans-serif"],
+              "description": "Font family stack with fallbacks"
+            },
+            "size": {
+              "type": "string",
+              "pattern": "^\\d+(\\.\\d+)?(pt|px|em|rem)$",
+              "default": "11pt",
+              "description": "Default font size"
+            },
+            "color": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$",
+              "default": "#333333",
+              "description": "Default font color (hex)"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "fonts": {
+      "type": "array",
+      "description": "Custom font declarations for embedding",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Font family name used in CSS"
+          },
+          "normal": {
+            "type": "string",
+            "description": "Path to normal weight font file"
+          },
+          "bold": {
+            "type": "string",
+            "description": "Path to bold weight font file"
+          },
+          "italic": {
+            "type": "string",
+            "description": "Path to italic font file"
+          },
+          "bold_italic": {
+            "type": "string",
+            "description": "Path to bold italic font file"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "stylesheets": {
+      "type": "array",
+      "description": "List of CSS files to include",
+      "items": {
+        "type": "string",
+        "description": "Path to CSS file"
+      },
+      "default": []
+    },
+    "styles": {
+      "type": "object",
+      "description": "Style definitions for standard Markdown elements",
+      "patternProperties": {
+        "^(h[1-6]|p|ul|ol|li|blockquote|a|strong|em|code|pre|table|th|td|img|hr|code_block)$": {
+          "type": "object",
+          "properties": {
+            "font_family": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Font family stack"
+            },
+            "font_size": {
+              "type": "string",
+              "pattern": "^\\d+(\\.\\d+)?(pt|px|em|rem)$",
+              "description": "Font size"
+            },
+            "font_weight": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "enum": ["normal", "bold", "lighter", "bolder"]
+                },
+                {
+                  "type": "integer",
+                  "minimum": 100,
+                  "maximum": 900,
+                  "multipleOf": 100
+                }
+              ],
+              "description": "Font weight"
+            },
+            "font_style": {
+              "type": "string",
+              "enum": ["normal", "italic", "oblique"],
+              "description": "Font style"
+            },
+            "color": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$",
+              "description": "Text color (hex)"
+            },
+            "background_color": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$",
+              "description": "Background color (hex)"
+            },
+            "line_height": {
+              "type": "string",
+              "pattern": "^\\d+(\\.\\d+)?(|em|rem|%)$",
+              "description": "Line height"
+            },
+            "margin": {
+              "type": "string",
+              "description": "Margin shorthand (e.g., '10px', '10px 5px', '10px 5px 15px 20px')"
+            },
+            "margin_top": {
+              "type": "string",
+              "pattern": "^\\d+(\\.\\d+)?(cm|mm|in|pt|px)$",
+              "description": "Top margin"
+            },
+            "margin_bottom": {
+              "type": "string",
+              "pattern": "^\\d+(\\.\\d+)?(cm|mm|in|pt|px)$",
+              "description": "Bottom margin"
+            },
+            "margin_left": {
+              "type": "string",
+              "pattern": "^\\d+(\\.\\d+)?(cm|mm|in|pt|px)$",
+              "description": "Left margin"
+            },
+            "margin_right": {
+              "type": "string",
+              "pattern": "^\\d+(\\.\\d+)?(cm|mm|in|pt|px)$",
+              "description": "Right margin"
+            },
+            "padding": {
+              "type": "string",
+              "description": "Padding shorthand (e.g., '10px', '10px 5px', '10px 5px 15px 20px')"
+            },
+            "padding_top": {
+              "type": "string",
+              "pattern": "^\\d+(\\.\\d+)?(cm|mm|in|pt|px)$",
+              "description": "Top padding"
+            },
+            "padding_bottom": {
+              "type": "string",
+              "pattern": "^\\d+(\\.\\d+)?(cm|mm|in|pt|px)$",
+              "description": "Bottom padding"
+            },
+            "padding_left": {
+              "type": "string",
+              "pattern": "^\\d+(\\.\\d+)?(cm|mm|in|pt|px)$",
+              "description": "Left padding"
+            },
+            "padding_right": {
+              "type": "string",
+              "pattern": "^\\d+(\\.\\d+)?(cm|mm|in|pt|px)$",
+              "description": "Right padding"
+            },
+            "border": {
+              "type": "string",
+              "description": "Border specification"
+            },
+            "border_top": {
+              "type": "string",
+              "description": "Top border specification"
+            },
+            "border_bottom": {
+              "type": "string",
+              "description": "Bottom border specification"
+            },
+            "border_left": {
+              "type": "string",
+              "description": "Left border specification"
+            },
+            "border_right": {
+              "type": "string",
+              "description": "Right border specification"
+            },
+            "border_radius": {
+              "type": "string",
+              "pattern": "^\\d+(\\.\\d+)?(cm|mm|in|pt|px)$",
+              "description": "Border radius"
+            },
+            "text_align": {
+              "type": "string",
+              "enum": ["left", "right", "center", "justify"],
+              "description": "Text alignment"
+            },
+            "text_decoration": {
+              "type": "string",
+              "enum": ["none", "underline", "overline", "line-through"],
+              "description": "Text decoration"
+            },
+            "list_style_type": {
+              "type": "string",
+              "description": "List style type for ul/ol elements"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "custom_components": {
+      "type": "object",
+      "description": "Configuration for custom Markdown components",
+      "patternProperties": {
+        "^[a-zA-Z_][a-zA-Z0-9_]*$": {
+          "type": "object",
+          "properties": {
+            "template": {
+              "type": "string",
+              "description": "Path to Jinja2 template file"
+            },
+            "default_icon": {
+              "type": "string",
+              "description": "Default icon for the component"
+            },
+            "default_attributes": {
+              "type": "object",
+              "description": "Default attributes for the component",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "page_headers": {
+      "type": "object",
+      "description": "Page header configurations",
+      "patternProperties": {
+        "^[a-zA-Z_][a-zA-Z0-9_]*$": {
+          "type": "object",
+          "properties": {
+            "left": {
+              "type": "string",
+              "description": "Left header content (supports variables)"
+            },
+            "center": {
+              "type": "string",
+              "description": "Center header content (supports variables)"
+            },
+            "right": {
+              "type": "string",
+              "description": "Right header content (supports variables)"
+            },
+            "font_family": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Header font family"
+            },
+            "font_size": {
+              "type": "string",
+              "pattern": "^\\d+(\\.\\d+)?(pt|px|em|rem)$",
+              "description": "Header font size"
+            },
+            "color": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$",
+              "description": "Header text color"
+            },
+            "line_separator": {
+              "type": "boolean",
+              "default": false,
+              "description": "Show line separator below header"
+            },
+            "line_color": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$",
+              "description": "Separator line color"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "page_footers": {
+      "type": "object",
+      "description": "Page footer configurations",
+      "patternProperties": {
+        "^[a-zA-Z_][a-zA-Z0-9_]*$": {
+          "type": "object",
+          "properties": {
+            "left": {
+              "type": "string",
+              "description": "Left footer content (supports variables)"
+            },
+            "center": {
+              "type": "string",
+              "description": "Center footer content (supports variables)"
+            },
+            "right": {
+              "type": "string",
+              "description": "Right footer content (supports variables)"
+            },
+            "font_family": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Footer font family"
+            },
+            "font_size": {
+              "type": "string",
+              "pattern": "^\\d+(\\.\\d+)?(pt|px|em|rem)$",
+              "description": "Footer font size"
+            },
+            "color": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$",
+              "description": "Footer text color"
+            },
+            "line_separator": {
+              "type": "boolean",
+              "default": false,
+              "description": "Show line separator above footer"
+            },
+            "line_color": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$",
+              "description": "Separator line color"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+} 

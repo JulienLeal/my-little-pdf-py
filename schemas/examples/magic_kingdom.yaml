@@ -1,0 +1,155 @@
+# Magic Kingdom Itinerary Theme Configuration
+# Recreates the styling from Magic_Kingdom_Itinerary_2025.pdf
+# with custom components for tips, secrets, and attention boxes.
+
+page_setup:
+  size: "A4"
+  orientation: "portrait"
+  margin:
+    top: "2cm"
+    bottom: "2cm"
+    left: "1.5cm"
+    right: "1.5cm"
+  default_font:
+    family: ["Poppins", "Arial", "sans-serif"]
+    size: "11pt"
+    color: "#2c3e50"
+
+# Custom fonts for Disney magic
+fonts:
+  - name: "Poppins"
+    normal: "fonts/Poppins-Regular.ttf"
+    bold: "fonts/Poppins-Bold.ttf"
+    italic: "fonts/Poppins-Italic.ttf"
+    bold_italic: "fonts/Poppins-BoldItalic.ttf"
+  - name: "FontAwesome"
+    normal: "fonts/fontawesome-webfont.ttf"
+
+# Magic Kingdom specific stylesheets
+stylesheets:
+  - "themes/magic_kingdom/base.css"
+  - "themes/magic_kingdom/components.css"
+  - "themes/magic_kingdom/animations.css"
+
+# Disney-themed element styling
+styles:
+  h1:
+    font_family: ["Poppins", "sans-serif"]
+    font_size: "32pt"
+    font_weight: "bold"
+    color: "#1e3a8a"  # Disney blue
+    margin_top: "20px"
+    margin_bottom: "15px"
+    text_align: "center"
+  
+  h2:
+    font_family: ["Poppins", "sans-serif"]
+    font_size: "24pt"
+    font_weight: "bold"
+    color: "#dc2626"  # Disney red
+    margin_top: "18px"
+    margin_bottom: "12px"
+    border_bottom: "2px solid #fbbf24"  # Disney gold
+    padding_bottom: "5px"
+  
+  h3:
+    font_family: ["Poppins", "sans-serif"]
+    font_size: "18pt"
+    font_weight: 600
+    color: "#059669"  # Disney green
+    margin_top: "16px"
+    margin_bottom: "10px"
+  
+  p:
+    line_height: "1.6"
+    margin_bottom: "12px"
+    text_align: "justify"
+  
+  ul:
+    margin_bottom: "15px"
+    padding_left: "25px"
+  
+  ol:
+    margin_bottom: "15px"
+    padding_left: "25px"
+    list_style_type: "none"  # Custom numbered styling via CSS
+  
+  li:
+    margin_bottom: "8px"
+    line_height: "1.5"
+  
+  blockquote:
+    color: "#6b7280"
+    background_color: "#fef3c7"  # Light magical yellow
+    border_left: "5px solid #fbbf24"
+    padding: "15px 20px"
+    margin: "20px 0"
+    border_radius: "8px"
+    font_style: "italic"
+  
+  a:
+    color: "#1e40af"
+    text_decoration: "underline"
+  
+  strong:
+    font_weight: "bold"
+    color: "#1f2937"
+
+# Custom Disney components
+custom_components:
+  tip_box:
+    template: "templates/magic_kingdom/tip_box.html"
+    default_icon: "lightbulb"
+    default_attributes:
+      title: "DICA MÁGICA"
+      theme: "blue"
+  
+  magic_secret:
+    template: "templates/magic_kingdom/magic_secret.html"
+    default_icon: "wand"
+    default_attributes:
+      title: "SEGREDINHO MÁGICO"
+      theme: "purple"
+  
+  attention_box:
+    template: "templates/magic_kingdom/attention_box.html"
+    default_icon: "alert-triangle"
+    default_attributes:
+      title: "ATENÇÃO"
+      theme: "orange"
+  
+  time_slot:
+    template: "templates/magic_kingdom/time_slot.html"
+    default_icon: "clock"
+    default_attributes:
+      theme: "green"
+  
+  character_meet:
+    template: "templates/magic_kingdom/character_meet.html"
+    default_icon: "heart"
+    default_attributes:
+      theme: "pink"
+
+# Magic Kingdom headers
+page_headers:
+  default:
+    left: ""
+    center: "Magic Kingdom Itinerary 2025"
+    right: ""
+    font_family: ["Poppins", "sans-serif"]
+    font_size: "10pt"
+    color: "#1e3a8a"
+    line_separator: true
+    line_color: "#fbbf24"
+
+# Magic Kingdom footers
+page_footers:
+  default:
+    left: "Have a Magical Day! ✨"
+    center: ""
+    right: "Página {page_number} | DIA 1"
+    font_family: ["Poppins", "sans-serif"]
+    font_size: "9pt"
+    color: "#6b7280"
+    line_separator: true
+    line_color: "#fbbf24" 

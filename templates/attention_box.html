@@ -1,0 +1,17 @@
+<div class="{{ css_classes }}"{{ data_attributes | attr_string }}>
+    <div class="attention-box-header">
+        {% if type == "warning" %}
+        <span class="attention-icon">⚠️</span>
+        {% elif type == "info" %}
+        <span class="attention-icon">ℹ️</span>
+        {% elif type == "success" %}
+        <span class="attention-icon">✅</span>
+        {% else %}
+        <span class="attention-icon">📢</span>
+        {% endif %}
+        <strong>{{ title | default("Attention") }}</strong>
+    </div>
+    <div class="attention-box-content">
+        {{ content | safe }}
+    </div>
+</div> 

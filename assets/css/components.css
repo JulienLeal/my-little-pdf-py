@@ -1,0 +1,242 @@
+/* 
+ * Custom Components Styling - WeasyPrint Optimized
+ * Solid colors instead of gradients for better PDF rendering
+ */
+
+/* Base styling for all custom components */
+.custom-block {
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Tip Box Component */
+.tip-box {
+    border: 2px solid #2196f3;
+    background-color: #e3f2fd;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.tip-box::before {
+    content: "💡";
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.2rem;
+    opacity: 0.7;
+}
+
+.tip-box-content {
+    margin: 0;
+    line-height: 1.6;
+    color: #1565c0;
+}
+
+.tip-box-header {
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+    color: #0d47a1;
+}
+
+/* Color variations for tip boxes */
+.tip-box.color-blue {
+    border-color: #2196f3;
+    background-color: #e3f2fd;
+}
+
+.tip-box.color-green {
+    border-color: #4caf50;
+    background-color: #e8f5e8;
+}
+
+.tip-box.color-green .tip-box-content {
+    color: #2e7d32;
+}
+
+.tip-box.color-green::before {
+    content: "🌱";
+}
+
+.tip-box.color-purple {
+    border-color: #9c27b0;
+    background-color: #f3e5f5;
+}
+
+.tip-box.color-purple .tip-box-content {
+    color: #6a1b9a;
+}
+
+.tip-box.color-purple::before {
+    content: "🔮";
+}
+
+.tip-box.color-red {
+    border-color: #f44336;
+    background-color: #ffebee;
+}
+
+.tip-box.color-red .tip-box-content {
+    color: #c62828;
+}
+
+.tip-box.color-red::before {
+    content: "🚨";
+}
+
+/* Magic Secret Component */
+.magic-secret {
+    background-color: #3f51b5;
+    color: white;
+    padding: 1.5rem;
+    position: relative;
+    border: 3px solid #1a237e;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.magic-secret-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: white;
+}
+
+.magic-icon {
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+}
+
+.magic-secret-content {
+    text-align: center;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 6px;
+    color: white;
+}
+
+/* Attention Box Component */
+.attention-box {
+    border-left: 5px solid #ff9800;
+    background-color: #fff8e1;
+    padding: 1.5rem;
+    position: relative;
+}
+
+.attention-box-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    font-weight: bold;
+    color: #e65100;
+}
+
+.attention-icon {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.attention-box-content {
+    color: #bf360c;
+    line-height: 1.6;
+}
+
+/* Type variations for attention boxes */
+.attention-box[data-type="warning"] {
+    border-left-color: #ff5722;
+    background-color: #fff3e0;
+}
+
+.attention-box[data-type="info"] {
+    border-left-color: #2196f3;
+    background-color: #e3f2fd;
+}
+
+.attention-box[data-type="info"] .attention-box-header {
+    color: #0d47a1;
+}
+
+.attention-box[data-type="info"] .attention-box-content {
+    color: #1565c0;
+}
+
+.attention-box[data-type="error"] {
+    border-left-color: #f44336;
+    background-color: #ffebee;
+}
+
+.attention-box[data-type="error"] .attention-box-header {
+    color: #b71c1c;
+}
+
+.attention-box[data-type="error"] .attention-box-content {
+    color: #c62828;
+}
+
+.attention-box[data-type="success"] {
+    border-left-color: #4caf50;
+    background-color: #e8f5e8;
+}
+
+.attention-box[data-type="success"] .attention-box-header {
+    color: #2e7d32;
+}
+
+.attention-box[data-type="success"] .attention-box-content {
+    color: #388e3c;
+}
+
+/* Generic component fallback */
+.custom-block:not(.tip-box):not(.magic-secret):not(.attention-box) {
+    border: 2px solid #e2e8f0;
+    background-color: #f7fafc;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.custom-block:not(.tip-box):not(.magic-secret):not(.attention-box)::before {
+    content: "📝";
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.2rem;
+    opacity: 0.7;
+}
+
+/* Template wrapper for better spacing */
+.template-wrapper {
+    margin: 1rem 0;
+    page-break-inside: avoid;
+}
+
+/* Print optimizations */
+@media print {
+    .custom-block {
+        box-shadow: none;
+        border-width: 2px;
+    }
+    
+    .magic-secret {
+        background-color: #3f51b5 !important;
+        color: white !important;
+        border: 3px solid #1a237e !important;
+    }
+    
+    .tip-box {
+        background-color: #e3f2fd !important;
+        border-color: #2196f3 !important;
+    }
+    
+    .attention-box {
+        background-color: #fff8e1 !important;
+        border-left-color: #ff9800 !important;
+    }
+} 

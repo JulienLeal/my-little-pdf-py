@@ -1,0 +1,44 @@
+# Minimal Theme Configuration
+# This is the simplest possible theme configuration that demonstrates
+# the basic structure and provides good defaults.
+
+page_setup:
+  size: "A4"
+  orientation: "portrait"
+  margin: "2cm"
+  default_font:
+    family: ["Open Sans", "Arial", "sans-serif"]
+    size: "11pt"
+    color: "#333333"
+
+# Basic styling for common elements
+styles:
+  h1:
+    font_size: "24pt"
+    color: "#2c3e50"
+    margin_bottom: "16px"
+  
+  h2:
+    font_size: "20pt"
+    color: "#34495e"
+    margin_bottom: "14px"
+  
+  p:
+    line_height: "1.6"
+    margin_bottom: "12px"
+  
+  ul:
+    margin_bottom: "12px"
+  
+  blockquote:
+    color: "#666666"
+    border_left: "4px solid #3498db"
+    padding_left: "16px"
+    margin_left: "0px"
+
+# Simple page footer
+page_footers:
+  default:
+    center: "Page {page_number}"
+    font_size: "9pt"
+    color: "#888888" 

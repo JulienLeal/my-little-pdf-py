@@ -1,0 +1,118 @@
+# Magic Kingdom Colorful Theme
+# A vibrant, Disney-inspired theme with magical colors
+
+page_setup:
+  size: "A4"
+  orientation: "portrait"
+  margin: "2cm"
+  default_font:
+    family: ["Georgia", "Times New Roman", "serif"]
+    size: "11pt"
+    color: "#2c3e50"
+
+# Magical color palette inspired by Disney
+styles:
+  h1:
+    font_size: "28pt"
+    color: "#8b4cb8"  # Royal purple
+    margin_bottom: "20px"
+    margin_top: "20px"
+    text_align: "center"
+    font_weight: "bold"
+    
+  h2:
+    font_size: "22pt"  
+    color: "#ff6b6b"  # Coral red
+    margin_bottom: "16px"
+    margin_top: "24px"
+    font_weight: "bold"
+    
+  h3:
+    font_size: "18pt"
+    color: "#4ecdc4"  # Turquoise teal
+    margin_bottom: "12px"
+    margin_top: "20px"
+    font_weight: "bold"
+    
+  h4:
+    font_size: "16pt"
+    color: "#f39c12"  # Golden yellow
+    margin_bottom: "10px"
+    margin_top: "16px"
+    font_weight: "bold"
+    
+  p:
+    line_height: "1.6"
+    margin_bottom: "12px"
+    color: "#2c3e50"
+    
+  strong:
+    color: "#e74c3c"  # Bright red
+    font_weight: "bold"
+    
+  em:
+    color: "#9b59b6"  # Light purple
+    font_style: "italic"
+    
+  ul:
+    margin_bottom: "14px"
+    margin_left: "20px"
+    
+  li:
+    margin_bottom: "6px"
+    line_height: "1.5"
+    color: "#34495e"
+    
+  blockquote:
+    color: "#7f8c8d"
+    border_left: "4px solid #f39c12"
+    padding_left: "16px"
+    margin_left: "0px"
+    margin_bottom: "16px"
+    font_style: "italic"
+    background_color: "#fef9e7"
+
+  code:
+    background_color: "#ecf0f1"
+    color: "#e74c3c"
+    padding: "2px 4px"
+    border_radius: "3px"
+    font_family: ["Courier New", "monospace"]
+
+  pre:
+    background_color: "#2c3e50"
+    color: "#ecf0f1"
+    padding: "16px"
+    border_radius: "8px"
+    margin_bottom: "16px"
+
+  table:
+    margin_bottom: "16px"
+    
+  th:
+    background_color: "#8b4cb8"
+    color: "#ffffff"
+    padding: "12px"
+    text_align: "left"
+    font_weight: "bold"
+    
+  td:
+    padding: "10px 12px"
+
+  hr:
+    border: "3px solid #8b4cb8"
+    margin: "30px 0"
+
+# Magical page headers and footers with colors
+page_headers:
+  default:
+    left: "✨ Magic Kingdom Guide"
+    right: "{date}"
+    font_size: "10pt"
+    color: "#8b4cb8"
+
+page_footers:
+  default:
+    center: "🏰 Page {page_number} of {total_pages} 🏰"
+    font_size: "10pt"
+    color: "#8b4cb8" 

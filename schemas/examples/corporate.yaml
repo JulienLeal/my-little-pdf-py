@@ -1,0 +1,166 @@
+# Corporate Theme Configuration
+# Professional business document theme with custom fonts,
+# headers/footers, and comprehensive styling.
+
+page_setup:
+  size: "Letter"
+  orientation: "portrait"
+  margin:
+    top: "1in"
+    bottom: "1in"
+    left: "0.75in"
+    right: "0.75in"
+  default_font:
+    family: ["Inter", "Roboto", "Arial", "sans-serif"]
+    size: "10pt"
+    color: "#2c3e50"
+
+# Custom font declarations
+fonts:
+  - name: "Inter"
+    normal: "fonts/Inter-Regular.ttf"
+    bold: "fonts/Inter-Bold.ttf"
+    italic: "fonts/Inter-Italic.ttf"
+    bold_italic: "fonts/Inter-BoldItalic.ttf"
+  - name: "JetBrainsMono"
+    normal: "fonts/JetBrainsMono-Regular.ttf"
+    bold: "fonts/JetBrainsMono-Bold.ttf"
+
+# External stylesheets
+stylesheets:
+  - "themes/corporate/base.css"
+  - "themes/corporate/components.css"
+  - "themes/corporate/print.css"
+
+# Comprehensive element styling
+styles:
+  h1:
+    font_family: ["Inter", "sans-serif"]
+    font_size: "28pt"
+    font_weight: "bold"
+    color: "#1a5276"
+    margin_top: "24px"
+    margin_bottom: "16px"
+    border_bottom: "3px solid #3498db"
+    padding_bottom: "8px"
+  
+  h2:
+    font_family: ["Inter", "sans-serif"]
+    font_size: "22pt"
+    font_weight: 600
+    color: "#2c3e50"
+    margin_top: "20px"
+    margin_bottom: "12px"
+  
+  h3:
+    font_family: ["Inter", "sans-serif"]
+    font_size: "18pt"
+    font_weight: 600
+    color: "#34495e"
+    margin_top: "16px"
+    margin_bottom: "10px"
+  
+  p:
+    line_height: "1.7"
+    margin_bottom: "14px"
+    text_align: "justify"
+  
+  ul:
+    margin_bottom: "14px"
+    padding_left: "20px"
+  
+  ol:
+    margin_bottom: "14px"
+    padding_left: "20px"
+  
+  li:
+    margin_bottom: "4px"
+    line_height: "1.6"
+  
+  blockquote:
+    color: "#5d6d7e"
+    background_color: "#f8f9fa"
+    border_left: "5px solid #3498db"
+    padding: "15px 20px"
+    margin: "20px 0"
+    font_style: "italic"
+  
+  a:
+    color: "#2980b9"
+    text_decoration: "none"
+  
+  code:
+    font_family: ["JetBrainsMono", "Courier New", "monospace"]
+    background_color: "#f1f2f6"
+    padding: "2px 4px"
+    border_radius: "3px"
+    font_size: "9pt"
+  
+  code_block:
+    font_family: ["JetBrainsMono", "Courier New", "monospace"]
+    background_color: "#f8f9fa"
+    border: "1px solid #e9ecef"
+    border_radius: "4px"
+    padding: "15px"
+    margin: "15px 0"
+    font_size: "9pt"
+    line_height: "1.4"
+  
+  table:
+    border: "1px solid #dee2e6"
+    margin: "20px 0"
+  
+  th:
+    background_color: "#3498db"
+    color: "#ffffff"
+    font_weight: "bold"
+    padding: "12px 15px"
+    border: "1px solid #2980b9"
+  
+  td:
+    padding: "10px 15px"
+    border: "1px solid #dee2e6"
+    line_height: "1.5"
+
+# Custom component configuration
+custom_components:
+  tip_box:
+    template: "templates/corporate/tip_box.html"
+    default_icon: "lightbulb"
+    default_attributes:
+      theme: "blue"
+  
+  warning_box:
+    template: "templates/corporate/warning_box.html"
+    default_icon: "alert-triangle"
+    default_attributes:
+      theme: "orange"
+  
+  info_box:
+    template: "templates/corporate/info_box.html"
+    default_icon: "info"
+    default_attributes:
+      theme: "gray"
+
+# Professional headers
+page_headers:
+  default:
+    left: "{section_title}"
+    right: "Company Confidential"
+    font_family: ["Inter", "sans-serif"]
+    font_size: "8pt"
+    color: "#666666"
+    line_separator: true
+    line_color: "#cccccc"
+
+# Professional footers
+page_footers:
+  default:
+    left: "© 2025 Your Company"
+    center: "Document Title"
+    right: "Page {page_number} of {total_pages}"
+    font_family: ["Inter", "sans-serif"]
+    font_size: "8pt"
+    color: "#666666"
+    line_separator: true
+    line_color: "#cccccc" 

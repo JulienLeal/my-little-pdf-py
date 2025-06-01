@@ -1,0 +1,144 @@
+# Magic Kingdom Theme Configuration
+# A magical theme inspired by Disney's enchanted castle and wonder
+
+page_setup:
+  size: "A4"
+  orientation: "portrait"
+  margin: "2cm"
+  default_font:
+    family: ["Georgia", "Times New Roman", "serif"]
+    size: "11pt"
+    color: "#2c3e50"
+
+# Disney-inspired color palette
+styles:
+  h1:
+    font_size: "28pt"
+    color: "#8b4cb8"  # Magic purple
+    margin_bottom: "20px"
+    margin_top: "20px"
+    text_align: "center"
+    font_weight: "bold"
+    
+  h2:
+    font_size: "22pt"  
+    color: "#ff6b6b"  # Disney red
+    margin_bottom: "16px"
+    margin_top: "24px"
+    font_weight: "bold"
+    
+  h3:
+    font_size: "18pt"
+    color: "#4ecdc4"  # Teal magic
+    margin_bottom: "12px"
+    margin_top: "20px"
+    font_weight: "bold"
+    
+  p:
+    line_height: "1.6"
+    margin_bottom: "12px"
+    text_align: "justify"
+    
+  strong:
+    color: "#e74c3c"  # Bright red for emphasis
+    font_weight: "bold"
+    
+  em:
+    color: "#9b59b6"  # Purple for italics
+    font_style: "italic"
+    
+  ul:
+    margin_bottom: "14px"
+    margin_left: "20px"
+    
+  li:
+    margin_bottom: "6px"
+    line_height: "1.5"
+    
+  blockquote:
+    color: "#7f8c8d"
+    border_left: "4px solid #f39c12"
+    padding_left: "16px"
+    margin_left: "0px"
+    margin_bottom: "16px"
+    font_style: "italic"
+
+  code:
+    background_color: "#ecf0f1"
+    color: "#e74c3c"
+    padding: "2px 4px"
+    border_radius: "3px"
+    font_family: "monospace"
+
+  pre:
+    background_color: "#2c3e50"
+    color: "#ecf0f1"
+    padding: "16px"
+    border_radius: "8px"
+    margin_bottom: "16px"
+
+  table:
+    border_collapse: "collapse"
+    width: "100%"
+    margin_bottom: "16px"
+    
+  th:
+    background_color: "#8b4cb8"
+    color: "white"
+    padding: "12px"
+    text_align: "left"
+    font_weight: "bold"
+    
+  td:
+    padding: "10px 12px"
+    border_bottom: "1px solid #ddd"
+
+  hr:
+    border: "none"
+    height: "3px"
+    background_color: "#8b4cb8"
+    margin: "30px 0"
+    border_radius: "2px"
+
+# Custom Disney-themed components
+custom_components:
+  magic_secret:
+    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+    border: "none"
+    border_radius: "12px"
+    color: "white"
+    padding: "16px"
+    margin: "20px 0"
+    box_shadow: "0 8px 25px rgba(102, 126, 234, 0.3)"
+    
+  tip_box:
+    background: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)"
+    border: "2px solid #4ecdc4"
+    border_radius: "10px"
+    padding: "16px"
+    margin: "16px 0"
+    box_shadow: "0 4px 15px rgba(78, 205, 196, 0.2)"
+    
+  attention_box:
+    background: "linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)"
+    border: "2px solid #ff6b6b"
+    border_radius: "10px" 
+    padding: "16px"
+    margin: "16px 0"
+    box_shadow: "0 4px 15px rgba(255, 107, 107, 0.2)"
+
+# Magical page headers and footers
+page_headers:
+  default:
+    left: "✨ Magic Kingdom Guide"
+    right: "{date}"
+    font_size: "10pt"
+    color: "#8b4cb8"
+    margin_bottom: "10px"
+
+page_footers:
+  default:
+    center: "🏰 Page {page_number} of {total_pages} 🏰"
+    font_size: "10pt"
+    color: "#8b4cb8"
+    margin_top: "10px" 

@@ -1,0 +1,95 @@
+# Advanced Headers and Footers Theme Configuration
+# Demonstrates dynamic variable substitution and professional document features
+# Perfect for business reports, academic papers, and multi-section documents.
+
+page_setup:
+  size: "A4"
+  orientation: "portrait"
+  margin:
+    top: "1.5in"    # Extra space for headers
+    bottom: "1in"   # Space for footers
+    left: "1in"
+    right: "1in"
+  default_font:
+    family: ["Roboto", "Arial", "sans-serif"]
+    size: "11pt"
+    color: "#2c3e50"
+
+# Professional styling
+styles:
+  h1:
+    font_size: "24pt"
+    color: "#1a5276"
+    font_weight: "bold"
+    margin_top: "30px"
+    margin_bottom: "20px"
+    text_align: "center"
+    border_bottom: "2px solid #3498db"
+    padding_bottom: "10px"
+  
+  h2:
+    font_size: "18pt"
+    color: "#2471a3"
+    font_weight: "bold"
+    margin_top: "25px"
+    margin_bottom: "15px"
+  
+  p:
+    line_height: "1.6"
+    margin_bottom: "12px"
+    text_align: "justify"
+  
+  blockquote:
+    color: "#555555"
+    background_color: "#f8f9fa"
+    border_left: "4px solid #3498db"
+    padding: "15px 20px"
+    margin: "20px 0"
+    font_style: "italic"
+
+# Advanced header configurations with variables
+page_headers:
+  # Default header for most pages
+  default:
+    left: "{section_title}"
+    center: "{document_title}"
+    right: "{date}"
+    font_family: ["Roboto", "Arial", "sans-serif"]
+    font_size: "9pt"
+    color: "#666666"
+    line_separator: true
+    line_color: "#cccccc"
+  
+  # Clean first page header
+  first_page:
+    left: ""
+    center: ""
+    right: "Draft - {date}"
+    font_family: ["Roboto", "Arial", "sans-serif"]
+    font_size: "8pt"
+    color: "#999999"
+    line_separator: false
+
+# Advanced footer configurations
+page_footers:
+  # Default footer with company info and page numbers
+  default:
+    left: "© {year} My Company"
+    center: "Confidential"
+    right: "Page {page_number} of {total_pages}"
+    font_family: ["Roboto", "Arial", "sans-serif"]
+    font_size: "8pt"
+    color: "#777777"
+    line_separator: true
+    line_color: "#cccccc"
+  
+  # Simple first page footer
+  first_page:
+    left: ""
+    center: "© {year} My Company - Internal Use Only"
+    right: ""
+    font_family: ["Roboto", "Arial", "sans-serif"]
+    font_size: "8pt"
+    color: "#999999"
+    line_separator: true
+    line_color: "#eeeeee" 

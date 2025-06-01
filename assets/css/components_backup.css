@@ -1,0 +1,280 @@
+/* 
+ * Custom Components Styling
+ * Modern, clean styling for templated components
+ */
+
+/* Base styling for all custom components */
+.custom-block {
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.custom-block:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+}
+
+/* Tip Box Component */
+.tip-box {
+    border: 2px solid #e3f2fd;
+    background: linear-gradient(135deg, #f8fbff 0%, #e3f2fd 100%);
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.tip-box::before {
+    content: "💡";
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.2rem;
+    opacity: 0.7;
+}
+
+.tip-box-content {
+    margin: 0;
+    line-height: 1.6;
+    color: #1565c0;
+}
+
+/* Color variations for tip boxes */
+.tip-box.color-blue {
+    border-color: #2196f3;
+    background: linear-gradient(135deg, #f3f9ff 0%, #e3f2fd 100%);
+}
+
+.tip-box.color-green {
+    border-color: #4caf50;
+    background: linear-gradient(135deg, #f1f8e9 0%, #dcedc8 100%);
+}
+
+.tip-box.color-green .tip-box-content {
+    color: #2e7d32;
+}
+
+.tip-box.color-green::before {
+    content: "🌱";
+}
+
+.tip-box.color-purple {
+    border-color: #9c27b0;
+    background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+}
+
+.tip-box.color-purple .tip-box-content {
+    color: #6a1b9a;
+}
+
+.tip-box.color-purple::before {
+    content: "🔮";
+}
+
+.tip-box.color-red {
+    border-color: #f44336;
+    background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+}
+
+.tip-box.color-red .tip-box-content {
+    color: #c62828;
+}
+
+.tip-box.color-red::before {
+    content: "🚨";
+}
+
+/* Magic Secret Component */
+.magic-secret {
+    background: linear-gradient(135deg, #1a237e 0%, #3f51b5 100%);
+    color: white;
+    padding: 1.5rem;
+    position: relative;
+    border: none;
+    overflow: hidden;
+}
+
+.magic-secret::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.3"><animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/></circle><circle cx="80" cy="40" r="1" fill="white" opacity="0.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/></circle><circle cx="40" cy="80" r="1.5" fill="white" opacity="0.4"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.5s" repeatCount="indefinite"/></circle></svg>') repeat;
+    pointer-events: none;
+}
+
+.magic-secret-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.magic-icon {
+    margin: 0 0.5rem;
+    animation: sparkle 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes sparkle {
+    0% { transform: scale(1) rotate(0deg); }
+    100% { transform: scale(1.1) rotate(5deg); }
+}
+
+.magic-secret-content {
+    text-align: center;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 6px;
+    backdrop-filter: blur(5px);
+}
+
+/* Attention Box Component */
+.attention-box {
+    border-left: 5px solid #ff9800;
+    background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+    padding: 1.5rem;
+    position: relative;
+}
+
+.attention-box-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    font-weight: bold;
+    color: #e65100;
+}
+
+.attention-icon {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.attention-box-content {
+    color: #bf360c;
+    line-height: 1.6;
+}
+
+/* Type variations for attention boxes */
+.attention-box[data-type="warning"] {
+    border-left-color: #ff5722;
+    background: linear-gradient(135deg, #fff3e0 0%, #ffccbc 100%);
+}
+
+.attention-box[data-type="warning"] .attention-icon::before {
+    content: "⚠️";
+}
+
+.attention-box[data-type="info"] {
+    border-left-color: #2196f3;
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+}
+
+.attention-box[data-type="info"] .attention-box-header {
+    color: #0d47a1;
+}
+
+.attention-box[data-type="info"] .attention-box-content {
+    color: #1565c0;
+}
+
+.attention-box[data-type="info"] .attention-icon::before {
+    content: "ℹ️";
+}
+
+.attention-box[data-type="error"] {
+    border-left-color: #f44336;
+    background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+}
+
+.attention-box[data-type="error"] .attention-box-header {
+    color: #b71c1c;
+}
+
+.attention-box[data-type="error"] .attention-box-content {
+    color: #c62828;
+}
+
+.attention-box[data-type="error"] .attention-icon::before {
+    content: "❌";
+}
+
+.attention-box[data-type="success"] {
+    border-left-color: #4caf50;
+    background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+}
+
+.attention-box[data-type="success"] .attention-box-header {
+    color: #1b5e20;
+}
+
+.attention-box[data-type="success"] .attention-box-content {
+    color: #2e7d32;
+}
+
+.attention-box[data-type="success"] .attention-icon::before {
+    content: "✅";
+}
+
+/* Fallback styling for unknown components */
+.custom-block:not(.tip-box):not(.magic-secret):not(.attention-box) {
+    background: #f5f5f5;
+    border: 2px dashed #ccc;
+    padding: 1rem;
+    color: #666;
+    font-family: monospace;
+}
+
+.custom-block:not(.tip-box):not(.magic-secret):not(.attention-box)::before {
+    content: "🔧 " attr(class);
+    display: block;
+    font-size: 0.8rem;
+    color: #999;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+/* Template wrapper styling */
+.template-wrapper {
+    /* Transparent wrapper, styling comes from inner components */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .custom-block {
+        margin: 1rem 0;
+        padding: 1rem !important;
+    }
+    
+    .magic-secret-header {
+        font-size: 1rem;
+    }
+    
+    .attention-box-header {
+        font-size: 0.9rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .custom-block {
+        box-shadow: none;
+        break-inside: avoid;
+    }
+    
+    .custom-block:hover {
+        transform: none;
+    }
+    
+    .magic-icon {
+        animation: none;
+    }
+} 

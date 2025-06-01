@@ -1,20 +1,69 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
-name = "markdown-to-pdf-engine"
-version = "0.1.0"
-description = "A Python-based engine to convert Markdown to PDF with custom styling."
+name = "md-to-pdf-engine"
+dynamic = ["version"]
+description = "Configurable Markdown-to-PDF conversion engine"
+readme = "README.md"
 requires-python = ">=3.8"
+license = "MIT"
+keywords = ["markdown", "pdf", "conversion", "document-generation"]
+authors = [
+    { name = "Your Name", email = "your.email@example.com" },
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
 dependencies = [
-    "Markdown",
-    "Jinja2",
-    "WeasyPrint",
-    "PyYAML"
+    "markdown>=3.4",
+    "jinja2>=3.1",
+    "weasyprint>=57.0",
+    "pyyaml>=6.0",
+    "click>=8.0", # For CLI
+    "jsonschema>=4.0", # For YAML validation
 ]
 
-[build-system]
-requires = ["setuptools>=42", "wheel"]
-build-backend = "setuptools.build_meta"
-backend-path = ["."] # Specifies that setuptools should look for setup.py or setup.cfg if needed, common for setuptools
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov",
+    "ruff",
+    "black",
+    "mypy",
+]
 
-[tool.uv]
-# Optional: specify where uv should look for packages, if not PyPI
-# index-url = "https://pypi.org/simple"
+[project.urls]
+Documentation = "https://github.com/yourusername/md-to-pdf-engine#readme"
+Issues = "https://github.com/yourusername/md-to-pdf-engine/issues"
+Source = "https://github.com/yourusername/md-to-pdf-engine"
+
+[project.scripts]
+md2pdf = "md_to_pdf.cli:main"
+
+[tool.hatch.version]
+path = "src/md_to_pdf/__about__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/md_to_pdf"]
+
+[tool.ruff]
+target-version = "py38"
+line-length = 88
+
+[tool.black]
+target-version = ['py38']
+line-length = 88
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
